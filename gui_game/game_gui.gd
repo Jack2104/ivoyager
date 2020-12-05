@@ -23,8 +23,8 @@ class_name GameGUI
 # project vars - modify on objects_instantiated signal
 var draggable_panels := true
 var run_gui_classes := {
-	selection_panel = SelectionPanel,
-	navigation_panel = NavigationPanel,
+	#selection_panel = SelectionPanel,
+	#navigation_panel = NavigationPanel,
 	}
 
 # persisted

@@ -66,7 +66,7 @@ var speed_symbols := [
 	"GAME_SPEED_MONTH_PER_SECOND",
 ]
 var real_time_speed := 0
-var default_speed := 2
+var default_speed := 1
 var show_clock_speed := 2 # this index and lower
 var show_seconds_speed := 1 # this index and lower
 var date_format_for_file := "%02d-%02d-%02d" # keep safe for file name!
@@ -81,6 +81,19 @@ var ut1: float # UT1 (mean solar days from J2000 - 0.5)
 var speed_index: int
 var is_paused := true # lags 1 frame behind actual tree pause
 var is_reversed := false
+var seconds_since_start_time : float
+
+# NOT ACCURATE: The GDSctipt OS.get_unix_time_from_datetime return wrong value,
+# but is used for consistency
+const sys_j2000_epoch_in_unix_time: float = 946728000.0
+var start_time_dict := {
+	"year": 2020,
+	"month": 4,
+	"day": 10,
+	"hour": 0,
+	"minute": 0,
+	"second": 0
+}
 
 # persistence
 const PERSIST_AS_PROCEDURAL_OBJECT := false
@@ -276,6 +289,8 @@ func _set_init_state() -> void:
 	if start_real_world_time:
 		time = get_real_world_time()
 	else:
+		var start_time_in_unix_time := OS.get_unix_time_from_datetime(start_time_dict)
+		Global.start_time = start_time_in_unix_time - sys_j2000_epoch_in_unix_time
 		time = Global.start_time
 	engine_time = 0.0
 	times[0] = time
