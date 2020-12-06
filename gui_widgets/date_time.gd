@@ -48,8 +48,8 @@ func _update(_time: float, _e_delta: float) -> void:
 			_hm[0] = _clock[0]
 			_hm[1] = _clock[1]
 			new_text += clock_hm_format % _hm
-	if _is_paused and show_pause:
-		new_text += " " + tr("LABEL_PAUSED")
+	#if _is_paused and show_pause:
+	#	new_text += " " + tr("LABEL_PAUSED")
 	text = new_text
 
 func _on_speed_changed(_speed_index: int, is_reversed: bool, is_paused: bool,
