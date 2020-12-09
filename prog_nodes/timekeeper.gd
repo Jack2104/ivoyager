@@ -83,13 +83,13 @@ var is_paused := true # lags 1 frame behind actual tree pause
 var is_reversed := false
 var seconds_since_start_time : float
 
-# NOT ACCURATE: The GDSctipt OS.get_unix_time_from_datetime return wrong value,
+# NOT ACCURATE: The GDSctipt OS.get_unix_time_from_datetime returns wrong value,
 # but is used for consistency
 const sys_j2000_epoch_in_unix_time: float = 946728000.0
 var start_time_dict := {
 	"year": 2020,
-	"month": 4,
-	"day": 10,
+	"month": 12,
+	"day": 6,
 	"hour": 0,
 	"minute": 0,
 	"second": 0
